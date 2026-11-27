@@ -20,3 +20,13 @@ document.querySelectorAll(".fbrand,#brandName").forEach(e => e.textContent = CON
 const yr = $("yr"); if (yr) yr.textContent = new Date().getFullYear();
 const fab = $("waFab");
 if (fab) fab.href = waBase + "?text=" + encodeURIComponent("Halo admin " + CONFIG.brand + ", saya mau tanya top up Robux.");
+
+const bg = $("burger"), mn = $("menu");
+if (bg && mn) {
+  const set = o => { mn.hidden = !o; bg.setAttribute("aria-expanded", o); };
+  bg.addEventListener("click", e => { e.stopPropagation(); set(mn.hidden); });
+  mn.addEventListener("click", e => { if (e.target.closest("a")) set(false); });
+  document.addEventListener("click", e => { if (!mn.contains(e.target)) set(false); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") set(false); });
+  const wm = $("waMenu"); if (wm && fab) wm.href = fab.href;
+}

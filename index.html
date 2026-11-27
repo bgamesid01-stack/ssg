@@ -18,7 +18,18 @@
     <nav aria-label="Menu utama">
       <a href="index.html" aria-current="page">Beranda</a> <a href="index.html#paket">Metode</a> <a href="index.html#cara">Cara order</a> <a href="index.html#faq">FAQ</a>
     </nav>
-    <a class="btn btn-o btn-s" href="order.html">Order sekarang</a>
+    <div class="burgerwrap">
+      <button type="button" class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <div class="menu" id="menu" hidden>
+        <a href="index.html">Beranda</a>
+        <a href="index.html#paket">Metode</a>
+        <a href="index.html#cara">Cara order</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="#" id="waMenu" target="_blank" rel="noopener">Chat admin</a>
+      </div>
+    </div>
   </div>
 </header>
 <main>
