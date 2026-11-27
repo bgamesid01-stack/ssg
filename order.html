@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Order Robux – Saputra Store Game</title>
+<meta name="description" content="Top up Robux via username, login, atau gamepass. Pesan langsung lewat WhatsApp, diproses cepat.">
+<link rel="icon" type="image/png" href="favicon.png"><rect width='100' height='100' rx='24' fill='%23ff7a1a'/><text x='50' y='68' font-size='56' font-weight='800' text-anchor='middle' fill='white' font-family='sans-serif'>R</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html"><img src="logo.png" alt="" height="30"><span id="brandName">Saputra Store Game</span></a>
+    <nav aria-label="Menu utama">
+      <a href="index.html">Beranda</a> <a href="index.html#harga">Harga</a> <a href="index.html#cara">Cara order</a> <a href="index.html#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-o btn-s" href="order.html">Order sekarang</a>
+  </div>
+</header>
+<main>
+<div class="page-head"><h1>Buat pesanan Robux</h1><p>Pilih metode, isi data, lalu kirim ke WhatsApp admin.</p></div>
+<div class="order-wrap">
+<div class="card" id="order">
+      <h2>Buat pesanan</h2>
+      <div class="tabs" role="tablist" aria-label="Metode top up">
+        <button class="tab" role="tab" data-m="username" aria-selected="true">Via Username</button>
+        <button class="tab" role="tab" data-m="login" aria-selected="false">Via Login</button>
+        <button class="tab" role="tab" data-m="gamepass" aria-selected="false">Via Gamepass</button>
+      </div>
+      <p class="hint" id="hint"></p>
+
+      <label for="user">Username Roblox</label>
+      <input type="text" id="user" placeholder="contoh: BudiGamer123" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <div class="err" id="errUser" role="alert"></div>
+
+      <div id="gpBox" hidden>
+        <label for="gp">Link gamepass</label>
+        <input type="text" id="gp" placeholder="https://www.roblox.com/game-pass/..." autocomplete="off" spellcheck="false">
+        <div class="err" id="errGp" role="alert"></div>
+      </div>
+
+      <label id="amtLabel">Jumlah Robux</label>
+      <div class="chips" id="chips" role="group" aria-labelledby="amtLabel"></div>
+
+      <div class="box" id="info" hidden></div>
+
+      <div class="total"><span>Total bayar</span><strong id="total">Rp 0</strong></div>
+      <button class="btn btn-o" id="send" type="button">Pesan via WhatsApp</button>
+      <p class="fine">Kamu akan diarahkan ke WhatsApp admin untuk konfirmasi dan pembayaran.</p>
+    </div>
+</div>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <a class="logo" href="index.html"><img src="logo.png" alt="" height="30"><span class="fbrand">Saputra Store Game</span></a>
+      <p>Website ini bukan produk resmi Roblox dan tidak berafiliasi dengan Roblox Corporation. Roblox adalah merek dagang milik Roblox Corporation.</p>
+    </div>
+    <div class="copy">© <span id="yr"></span> <span class="fbrand">Saputra Store Game</span>. Semua hak dilindungi.</div>
+  </div>
+</footer>
+
+<a class="fab" id="waFab" href="#" target="_blank" rel="noopener" aria-label="Chat admin via WhatsApp">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.300 1.200-1.800 1.200-.5.100-1 .2-3.300-.7-2.800-1.200-4.600-4-4.700-4.200-.1-.2-1.100-1.500-1.100-2.800 0-1.300.7-2 1-2.300.2-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.9 2.100c.1.200.1.400 0 .5l-.4.600c-.1.200-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.200 1 2.200 1.400 2.500 1.500.3.100.5.100.7-.1l.9-1.100c.2-.3.400-.2.700-.1l2 .9c.3.100.5.200.5.300.100.100.100.700-.1 1.300z"/></svg>
+  Chat
+</a>
+
+<script src="site.js"></script>
+<script src="order.js"></script>
+</body>
+</html>
