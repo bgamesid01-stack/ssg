@@ -10,8 +10,9 @@ const price = (m, r) => Math.round(r * CONFIG.pricePerRobux[m]);
 const gpPrice = r => Math.ceil(r / 0.7);
 
 function renderChips(){
-  $("chips").innerHTML = CONFIG.packages.map(r =>
-    `<button type="button" class="chip" data-r="${r}" aria-pressed="${r===robux}"><b>${num(r)}</b><small>${rp(price(method,r))}</small></button>`
+  const tier = i => i < 2 ? 1 : i < 4 ? 2 : 3;
+  $("chips").innerHTML = CONFIG.packages.map((r, i) =>
+    `<button type="button" class="pk" data-r="${r}" aria-pressed="${r === robux}"><span class="stk">${'<img src="robux.png" alt="" width="50" height="45">'.repeat(tier(i))}</span><b>${num(r)}</b><small>Robux</small><span class="pr">${rp(price(method, r))}</span></button>`
   ).join("");
 }
 
@@ -30,7 +31,7 @@ function update(){
 }
 
 $("chips").addEventListener("click", e => {
-  const b = e.target.closest(".chip"); if (!b) return;
+  const b = e.target.closest(".pk"); if (!b) return;
   robux = +b.dataset.r; update();
 });
 

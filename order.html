@@ -16,7 +16,7 @@
   <div class="wrap nav">
     <a class="logo" href="index.html"><img src="logo.png" alt="" height="30"><span id="brandName">Saputra Store Game</span></a>
     <nav aria-label="Menu utama">
-      <a href="index.html">Beranda</a> <a href="index.html#paket">Harga</a> <a href="index.html#cara">Cara order</a> <a href="index.html#faq">FAQ</a>
+      <a href="index.html">Beranda</a> <a href="index.html#paket">Metode</a> <a href="index.html#cara">Cara order</a> <a href="index.html#faq">FAQ</a>
     </nav>
     <a class="btn btn-o btn-s" href="order.html">Order sekarang</a>
   </div>
@@ -30,6 +30,8 @@
       <div id="form" hidden>
       <div class="mhead"><b id="mname"></b><a class="swap" href="order.html">Ganti metode</a></div>
       <p class="hint" id="hint"></p>
+      <label id="amtLabel" style="margin-top:8px">Pilih jumlah Robux</label>
+      <div class="pks" id="chips" role="group" aria-labelledby="amtLabel"></div>
 
       <label for="user">Username Roblox</label>
       <input type="text" id="user" placeholder="contoh: BudiGamer123" autocomplete="off" autocapitalize="off" spellcheck="false">
@@ -40,9 +42,6 @@
         <input type="text" id="gp" placeholder="https://www.roblox.com/game-pass/..." autocomplete="off" spellcheck="false">
         <div class="err" id="errGp" role="alert"></div>
       </div>
-
-      <label id="amtLabel">Jumlah Robux</label>
-      <div class="chips" id="chips" role="group" aria-labelledby="amtLabel"></div>
 
       <div class="box" id="info" hidden></div>
 

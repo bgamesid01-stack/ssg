@@ -180,3 +180,13 @@ td a:hover{text-decoration:underline}
 a.mc{text-decoration:none;color:inherit}
 a.mc:hover{border-color:var(--orange)}
 .card .mcs{margin-top:4px}
+
+button.pk{font:inherit;color:inherit;cursor:pointer;text-align:center}
+.pk[aria-pressed="true"]{border-color:var(--orange);background:var(--orange-l);box-shadow:0 0 0 3px var(--orange-m)}
+.pk[aria-pressed="true"] .pr{background:var(--orange-d);color:#fff}
+.order-wrap{max-width:720px}
+.card .pks{margin-top:6px}
+.from{margin-top:6px;font-size:13px;font-weight:800;color:var(--orange-d)}
+#paket .mc{padding:26px 12px;transition:box-shadow .15s,border-color .15s}
+#paket .mc:hover{border-color:var(--orange);box-shadow:0 8px 22px rgba(217,79,0,.14)}
+@media(max-width:480px){#paket .mc{padding:18px 4px}.card .pks{gap:10px}}
