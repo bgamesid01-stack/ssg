@@ -24,12 +24,11 @@ function update(){
     info.hidden = false;
     info.innerHTML = `Buat gamepass dengan harga <b>${num(gpPrice(robux))} Robux</b> agar kamu menerima <b>${num(robux)} Robux</b> setelah potongan Roblox 30%.`;
   } else info.hidden = true;
-  document.querySelectorAll(".tab").forEach(t => t.setAttribute("aria-selected", t.dataset.m === method));
+  $("mname").textContent = m.name;
   renderChips();
   $("total").textContent = rp(price(method, robux));
 }
 
-document.querySelectorAll(".tab").forEach(t => t.addEventListener("click", () => { method = t.dataset.m; clearErr(); update(); }));
 $("chips").addEventListener("click", e => {
   const b = e.target.closest(".chip"); if (!b) return;
   robux = +b.dataset.r; update();
@@ -60,6 +59,12 @@ $("send").addEventListener("click", () => {
 });
 
 const qp = new URLSearchParams(location.search);
-if (METHODS[qp.get("m")]) method = qp.get("m");
 if (CONFIG.packages.includes(+qp.get("r"))) robux = +qp.get("r");
-update();
+if (METHODS[qp.get("m")]) {
+  method = qp.get("m");
+  $("ttl").textContent = "Buat pesanan";
+  $("form").hidden = false;
+  update();
+} else {
+  $("chooser").hidden = false;
+}

@@ -25,12 +25,10 @@
 <div class="page-head"><h1><img class="hico" src="robux.png" alt="" width="34" height="30">Buat pesanan Robux</h1><p>Pilih metode, isi data, lalu kirim ke WhatsApp admin.</p></div>
 <div class="order-wrap">
 <div class="card" id="order">
-      <h2>Buat pesanan</h2>
-      <div class="tabs" role="tablist" aria-label="Metode top up">
-        <button class="tab" role="tab" data-m="username" aria-selected="true">Via Username</button>
-        <button class="tab" role="tab" data-m="login" aria-selected="false">Via Login</button>
-        <button class="tab" role="tab" data-m="gamepass" aria-selected="false">Via Gamepass</button>
-      </div>
+      <h2 id="ttl">Pilih metode</h2>
+      <div id="chooser" class="mcs" hidden><a class="mc" href="order.html?m=username"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d94f00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg></span><b>Via Username</b><small>Tanpa password</small></a><a class="mc" href="order.html?m=login"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d94f00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 2l-2 2m-7.6 7.6a5.5 5.5 0 1 1-7.8 7.8 5.5 5.5 0 0 1 7.8-7.8zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3"/></svg></span><b>Via Login</b><small>Harga hemat</small></a><a class="mc" href="order.html?m=gamepass"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d94f00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 12h4m-2-2v4m7-1h.01M18 13h.01M17.3 5H6.7a4 4 0 0 0-3.9 3.2L1.5 15a3 3 0 0 0 5.2 2.4L8 16h8l1.3 1.4A3 3 0 0 0 22.5 15l-1.3-6.8A4 4 0 0 0 17.3 5z"/></svg></span><b>Via Gamepass</b><small>Tanpa data akun</small></a></div>
+      <div id="form" hidden>
+      <div class="mhead"><b id="mname"></b><a class="swap" href="order.html">Ganti metode</a></div>
       <p class="hint" id="hint"></p>
 
       <label for="user">Username Roblox</label>
@@ -51,6 +49,7 @@
       <div class="total"><span>Total bayar</span><strong id="total">Rp 0</strong></div>
       <button class="btn btn-o" id="send" type="button">Pesan via WhatsApp</button>
       <p class="fine">Kamu akan diarahkan ke WhatsApp admin untuk konfirmasi dan pembayaran.</p>
+      </div>
     </div>
 </div>
 </main>

@@ -173,3 +173,10 @@ td a:hover{text-decoration:underline}
 .stk img+img{margin-left:-22px}
 .pk:hover .stk img{transform:translateY(-3px)}
 .hico{width:34px;height:auto;vertical-align:-7px;margin-right:10px}
+
+.mhead{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--orange-l);border-radius:12px;padding:12px 14px}
+.mhead b{color:var(--orange-d)}
+.swap{font-size:13.5px;font-weight:700;color:var(--ink)}
+a.mc{text-decoration:none;color:inherit}
+a.mc:hover{border-color:var(--orange)}
+.card .mcs{margin-top:4px}
