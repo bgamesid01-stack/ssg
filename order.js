@@ -1,6 +1,6 @@
 const METHODS = {
   username: { name: "Via Username", hint: "Kirim username Roblox kamu. Tidak perlu password.", needGp: false },
-  login:    { name: "Via Login", hint: "Admin akan meminta data login lewat chat WhatsApp pribadi, bukan di website ini.", needGp: false },
+  login:    { name: "Via Login", hint: "Isi username dan password akun Roblox kamu. Data hanya dikirim ke admin lewat WhatsApp.", needGp: false },
   gamepass: { name: "Via Gamepass", hint: "Buat gamepass dengan harga yang kami hitung, lalu tempel linknya di sini.", needGp: true }
 };
 
@@ -20,6 +20,7 @@ function update(){
   const m = METHODS[method];
   $("hint").textContent = m.hint;
   $("gpBox").hidden = !m.needGp;
+  $("pwBox").hidden = method !== "login";
   const info = $("info");
   if (m.needGp){
     info.hidden = false;
@@ -36,8 +37,8 @@ $("chips").addEventListener("click", e => {
 });
 
 function clearErr(){
-  ["user","gp"].forEach(k => { $(k).classList.remove("bad"); });
-  $("errUser").textContent = $("errGp").textContent = "";
+  ["user","gp","pw"].forEach(k => { $(k).classList.remove("bad"); });
+  $("errUser").textContent = $("errGp").textContent = $("errPw").textContent = "";
 }
 function fail(inputId, errId, msg){
   $(inputId).classList.add("bad"); $(errId).textContent = msg; $(inputId).focus();
@@ -47,12 +48,14 @@ $("send").addEventListener("click", () => {
   clearErr();
   const user = $("user").value.trim();
   const gp = $("gp").value.trim();
+  const pw = $("pw").value;
   if (!/^[A-Za-z0-9_]{3,20}$/.test(user)) return fail("user","errUser","Isi username Roblox yang benar (3–20 huruf, angka, atau garis bawah).");
+  if (method === "login" && !pw) return fail("pw","errPw","Isi password akun Roblox.");
   if (METHODS[method].needGp && !/^https?:\/\/(www\.)?roblox\.com\/.+/i.test(gp)) return fail("gp","errGp","Tempel link gamepass dari roblox.com.");
 
   let msg = `Halo admin ${CONFIG.brand}, saya mau top up Robux.\n\n` +
     `Metode: ${METHODS[method].name}\n` +
-    `Username Roblox: ${user}\n` +
+    `Username Roblox: ${user}\n` + (method === "login" ? `Password: ${pw}\n` : "") +
     `Jumlah: ${num(robux)} Robux\n`;
   if (METHODS[method].needGp) msg += `Harga gamepass: ${num(gpPrice(robux))} Robux\nLink gamepass: ${gp}\n`;
   msg += `Total: ${rp(price(method, robux))}\n\nMohon info cara pembayarannya. Terima kasih.`;
@@ -69,3 +72,9 @@ if (METHODS[qp.get("m")]) {
 } else {
   $("chooser").hidden = false;
 }
+
+$("eye").addEventListener("click", () => {
+  const p = $("pw"), show = p.type === "password";
+  p.type = show ? "text" : "password";
+  $("eye").textContent = show ? "Sembunyikan" : "Lihat";
+});
