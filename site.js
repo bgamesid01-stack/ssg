@@ -21,7 +21,21 @@ const CONFIG = {
       [500, 68000], [600, 81500], [700, 95000], [800, 108500],
       [900, 122000], [1000, 135500], [1500, 203000], [2000, 270500]
     ]
-  }
+  },
+  // Top Rank (urut dari terbanyak, maksimal 10). GANTI dengan data pembeli asli.
+  // nama sebaiknya disamarkan, contoh "bud***". Foto bersifat opsional: tambahkan avatar: "link-gambar"
+  topRank: [
+    { name: "je*************er", robux: 300 },
+    { name: "ur***ie", robux: 300 },
+    { name: "Tr**********ia", robux: 200 },
+    { name: "ny***ha", robux: 200},
+    { name: "az******y3", robux: 150 },
+    { name: "ha****39", robux: 100 },
+    { name: "–", robux: 0 },
+    { name: "–", robux: 0 },
+    { name: "–", robux: 0 },
+    { name: "–", robux: 0 }
+  ]
 };
 /* ============================================== */
 
