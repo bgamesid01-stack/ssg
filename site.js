@@ -2,7 +2,7 @@
 /* ====== PENGATURAN: ubah bagian ini saja ====== */
 const CONFIG = {
   brand: "Saputra Store Game",
-  whatsapp: "6281234567890",        // nomor WA admin, format 62..., tanpa + dan tanpa spasi
+  whatsapp: "6285601100402",        // nomor WA admin, format 62..., tanpa + dan tanpa spasi
   // daftar harga tiap metode, format: [jumlah Robux, harga rupiah]
   // tambah, ubah, atau hapus baris sesuka kamu
   prices: {
