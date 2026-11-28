@@ -254,3 +254,7 @@ label.chk{display:flex;gap:12px;align-items:flex-start;margin:14px 0 0;padding:1
 .rbx-bt span{font-size:11px;font-weight:700;padding:8px 12px;border-radius:6px;background:#1f2937;color:#cbd5e1}
 .rbx-bt .sv{background:#22c27a;color:#06281a}
 @media(max-width:480px){.rbx{grid-template-columns:92px 1fr}.rbx-main{padding:14px 12px}}
+
+.bk{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.bk label{margin-top:12px}
+@media(max-width:560px){.bk{grid-template-columns:1fr;gap:0}}

