@@ -223,3 +223,34 @@ label.chk{display:flex;gap:12px;align-items:flex-start;margin:14px 0 0;padding:1
 .notes{margin-top:14px;border:1px solid var(--line);border-radius:14px;background:var(--soft);padding:14px 16px}
 .notes h3{font-size:15px;margin-bottom:8px}
 .notes ul{padding-left:20px;font-size:14px;color:var(--muted);display:grid;gap:6px}
+
+.gpg{margin-top:18px}
+.gpg-t{font-size:15px}
+.gpg-s{margin:8px 0 0;padding-left:20px;font-size:14px;color:var(--muted);display:grid;gap:4px}
+.gpg-s a{color:var(--orange-d);font-weight:700}
+.gpg-n{margin-top:10px;font-size:12.5px;color:var(--muted)}
+.rbx{display:grid;grid-template-columns:112px 1fr;background:#0d1117;border:1px solid #2a2f3a;border-radius:16px;overflow:hidden;color:#e8ecf2;margin-top:14px}
+.rbx-side{border-right:1px solid #2a2f3a;padding:16px 10px;font-size:12.5px;color:#9aa4b2;display:grid;gap:8px;align-content:start}
+.rbx-side b{color:#fff;font-size:16px;padding-left:8px}
+.rbx-side hr{border:0;border-top:1px solid #2a2f3a;margin:2px 0 4px}
+.rbx-side span{padding:8px;border-radius:6px}
+.rbx-side small{font-size:11px;letter-spacing:.05em;padding-left:8px}
+.rbx-side .on{background:#1b2636;color:#fff}
+.rbx-main{padding:16px;min-width:0}
+.rbx-main h4{font-size:20px;color:#fff}
+.rbx-main h5{font-size:15px;color:#fff;margin:10px 0 12px}
+.rbx-tg{display:flex;align-items:center;gap:10px;font-size:14px}
+.rbx-tg i{width:38px;height:22px;border-radius:99px;background:#1f8a5b;position:relative;flex:none}
+.rbx-tg i::after{content:"";position:absolute;right:2px;top:2px;width:18px;height:18px;border-radius:50%;background:#d7dce2}
+.rbx-in{display:flex;align-items:center;gap:8px;background:#1a2230;border-radius:8px;padding:11px 12px;margin:14px 2px 10px;font-size:15px;outline:2px solid var(--orange);outline-offset:2px}
+.rbx-in img,.rbx-ea img{width:20px;height:auto}
+.rbx-ea{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:12px;color:#8b95a5}
+.rbx-ea b{display:flex;align-items:center;gap:6px;color:#fff;font-size:13px}
+.rbx-ea b img{width:16px}
+.rbx-ck{display:flex;align-items:center;gap:10px;margin-top:14px;font-size:13.5px}
+.rbx-ck i{width:20px;height:20px;border:2px solid #25c27a;border-radius:5px;background:#0d1117;flex:none}
+.rbx-main hr{border:0;border-top:1px solid #2a2f3a;margin:14px 0}
+.rbx-bt{display:flex;gap:10px;flex-wrap:wrap}
+.rbx-bt span{font-size:11px;font-weight:700;padding:8px 12px;border-radius:6px;background:#1f2937;color:#cbd5e1}
+.rbx-bt .sv{background:#22c27a;color:#06281a}
+@media(max-width:480px){.rbx{grid-template-columns:92px 1fr}.rbx-main{padding:14px 12px}}

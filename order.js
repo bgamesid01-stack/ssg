@@ -21,11 +21,14 @@ function update(){
   const m = METHODS[method];
   $("hint").textContent = m.hint;
   $("gpBox").hidden = !m.needGp;
+  $("gpGuide").hidden = !m.needGp;
   $("pwBox").hidden = method !== "login";
   $("uBox").hidden = method !== "username";
   const info = $("info");
   if (m.needGp){
     info.hidden = false;
+    $("gpMockPrice").textContent = num(gpPrice(robux)) + " R$";
+    $("gpMockEarn").textContent = num(robux);
     info.innerHTML = `Buat gamepass dengan harga <b>${num(gpPrice(robux))} Robux</b> agar kamu menerima <b>${num(robux)} Robux</b> setelah potongan Roblox 30%.`;
   } else info.hidden = true;
   $("mname").textContent = m.name;
