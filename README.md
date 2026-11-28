@@ -14,3 +14,8 @@ Buka `site.js`, ubah bagian CONFIG:
 ## Kalau perubahan tidak muncul
 Upload ulang SEMUA file (index.html, order.html, style.css, site.js, order.js, gambar), lalu buka website dengan refresh paksa
 (Ctrl+Shift+R di komputer, atau buka lewat tab incognito di HP). Browser kadang masih menyimpan file lama.
+
+## Domain dan Google
+- File CNAME berisi domain www.ssg.my.id (jangan dihapus). Di GitHub: Settings > Pages > Custom domain, lalu centang Enforce HTTPS.
+- sitemap.xml dan robots.txt sudah ada. Daftarkan website di search.google.com/search-console,
+  tempel tag verifikasi di index.html (cari komentar "Tempel tag verifikasi"), lalu kirim sitemap: sitemap.xml
