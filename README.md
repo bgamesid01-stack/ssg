@@ -3,8 +3,7 @@
 ## Sebelum upload
 Buka `site.js`, ubah bagian CONFIG:
 - whatsapp: nomor admin, format 62xxxxxxxxxx (tanpa + dan spasi)
-- pricePerRobux: harga per 1 Robux untuk tiap metode
-- packages: daftar jumlah Robux
+- prices: daftar paket dan harga tiap metode, format [jumlah Robux, harga rupiah]
 
 ## Upload ke GitHub Pages
 1. Buat repository baru di GitHub.

@@ -2,12 +2,25 @@
 /* ====== PENGATURAN: ubah bagian ini saja ====== */
 const CONFIG = {
   brand: "Saputra Store Game",
-  whatsapp: "6281234567890",        // nomor WA admin, format 62..., tanpa + dan tanpa spasi
-  packages: [100, 200, 400, 800, 1000, 2000], // pilihan jumlah Robux
-  pricePerRobux: {                  // harga rupiah per 1 Robux (ubah sesuai harga kamu)
-    username: 140,
-    login: 125,
-    gamepass: 120
+  whatsapp: "6285601100402",        // nomor WA admin, format 62..., tanpa + dan tanpa spasi
+  // daftar harga tiap metode, format: [jumlah Robux, harga rupiah]
+  // tambah, ubah, atau hapus baris sesuka kamu
+  prices: {
+    username: [
+      [100, 16000], [200, 31000], [300, 46000], [400, 61000],
+      [500, 74000], [600, 91000], [700, 107000], [800, 122000],
+      [900, 135000], [1000, 152000], [1500, 227000], [2000, 302000],
+      [5000, 751000]
+    ],
+    login: [
+      [80, 15500], [500, 79000], [1000, 156000], [1500, 236000],
+      [2000, 303000]
+    ],
+    gamepass: [
+      [100, 14500], [200, 27500], [300, 41000], [400, 54500],
+      [500, 68000], [600, 81500], [700, 95000], [800, 108500],
+      [900, 122000], [1000, 135500], [1500, 203000], [2000, 270500]
+    ]
   }
 };
 /* ============================================== */

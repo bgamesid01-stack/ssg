@@ -94,7 +94,7 @@
 <script src="site.js"></script>
 <script>
 document.querySelectorAll(".from").forEach(e => {
-  e.textContent = "Mulai " + rp(Math.round(CONFIG.packages[0] * CONFIG.pricePerRobux[e.dataset.m]));
+  e.textContent = "Mulai " + rp(Math.min(...CONFIG.prices[e.dataset.m].map(p => p[1])));
 });
 </script>
 </body>

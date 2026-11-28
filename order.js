@@ -6,13 +6,14 @@ const METHODS = {
 
 let method = "username", robux = 1000;
 
-const price = (m, r) => Math.round(r * CONFIG.pricePerRobux[m]);
+const list = m => CONFIG.prices[m];
+const price = (m, r) => (list(m).find(p => p[0] === r) || [r, 0])[1];
 const gpPrice = r => Math.ceil(r / 0.7);
 
 function renderChips(){
-  const tier = i => i < 2 ? 1 : i < 4 ? 2 : 3;
-  $("chips").innerHTML = CONFIG.packages.map((r, i) =>
-    `<button type="button" class="pk" data-r="${r}" aria-pressed="${r === robux}"><span class="stk">${'<img src="robux.png" alt="" width="50" height="45">'.repeat(tier(i))}</span><b>${num(r)}</b><small>Robux</small><span class="pr">${rp(price(method, r))}</span></button>`
+  const l = list(method), tier = i => i < l.length / 3 ? 1 : i < l.length * 2 / 3 ? 2 : 3;
+  $("chips").innerHTML = l.map(([r, p], i) =>
+    `<button type="button" class="pk" data-r="${r}" aria-pressed="${r === robux}"><span class="stk">${'<img src="robux.png" alt="" width="50" height="45">'.repeat(tier(i))}</span><b>${num(r)}</b><small>Robux</small><span class="pr">${rp(p)}</span></button>`
   ).join("");
 }
 
@@ -63,9 +64,9 @@ $("send").addEventListener("click", () => {
 });
 
 const qp = new URLSearchParams(location.search);
-if (CONFIG.packages.includes(+qp.get("r"))) robux = +qp.get("r");
 if (METHODS[qp.get("m")]) {
   method = qp.get("m");
+  if (list(method).some(p => p[0] === +qp.get("r"))) robux = +qp.get("r");
   $("ttl").textContent = "Buat pesanan";
   $("form").hidden = false;
   update();
