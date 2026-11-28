@@ -10,3 +10,7 @@ Buka `site.js`, ubah bagian CONFIG:
 2. Upload SEMUA isi folder ini (bukan file zip-nya) ke repository.
 3. Settings > Pages > Source: branch main, folder / (root) > Save.
 4. Situs aktif di https://username.github.io/nama-repo
+
+## Kalau perubahan tidak muncul
+Upload ulang SEMUA file (index.html, order.html, style.css, site.js, order.js, gambar), lalu buka website dengan refresh paksa
+(Ctrl+Shift+R di komputer, atau buka lewat tab incognito di HP). Browser kadang masih menyimpan file lama.
