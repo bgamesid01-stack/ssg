@@ -22,6 +22,7 @@ function update(){
   $("hint").textContent = m.hint;
   $("gpBox").hidden = !m.needGp;
   $("pwBox").hidden = method !== "login";
+  $("uBox").hidden = method !== "username";
   const info = $("info");
   if (m.needGp){
     info.hidden = false;
@@ -38,8 +39,8 @@ $("chips").addEventListener("click", e => {
 });
 
 function clearErr(){
-  ["user","gp","pw"].forEach(k => { $(k).classList.remove("bad"); });
-  $("errUser").textContent = $("errGp").textContent = $("errPw").textContent = "";
+  ["user","gp","pw","v2"].forEach(k => { $(k).classList.remove("bad"); });
+  $("errUser").textContent = $("errGp").textContent = $("errPw").textContent = $("errV2").textContent = "";
 }
 function fail(inputId, errId, msg){
   $(inputId).classList.add("bad"); $(errId).textContent = msg; $(inputId).focus();
@@ -51,12 +52,13 @@ $("send").addEventListener("click", () => {
   const gp = $("gp").value.trim();
   const pw = $("pw").value;
   if (!/^[A-Za-z0-9_]{3,20}$/.test(user)) return fail("user","errUser","Isi username Roblox yang benar (3–20 huruf, angka, atau garis bawah).");
+  if (method === "username" && !$("v2").checked) return fail("v2","errV2","Centang dulu setelah Verifikasi 2 Langkah di akun penerima aktif.");
   if (method === "login" && !pw) return fail("pw","errPw","Isi password akun Roblox.");
   if (METHODS[method].needGp && !/^https?:\/\/(www\.)?roblox\.com\/.+/i.test(gp)) return fail("gp","errGp","Tempel link gamepass dari roblox.com.");
 
   let msg = `Halo admin ${CONFIG.brand}, saya mau top up Robux.\n\n` +
     `Metode: ${METHODS[method].name}\n` +
-    `Username Roblox: ${user}\n` + (method === "login" ? `Password: ${pw}\n` : "") +
+    `Username Roblox: ${user}\n` + (method === "login" ? `Password: ${pw}\n` : "") + (method === "username" ? `Verifikasi 2 Langkah: sudah aktif\n` : "") +
     `Jumlah: ${num(robux)} Robux\n`;
   if (METHODS[method].needGp) msg += `Harga gamepass: ${num(gpPrice(robux))} Robux\nLink gamepass: ${gp}\n`;
   msg += `Total: ${rp(price(method, robux))}\n\nMohon info cara pembayarannya. Terima kasih.`;
