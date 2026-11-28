@@ -22,6 +22,8 @@ const CONFIG = {
       [900, 122000], [1000, 135500], [1500, 203000], [2000, 270500]
     ]
   },
+  // jam admin online (WIB), format "jam:menit". Di luar jam ini status berubah jadi OFFLINE
+  adminHours: ["17:00", "21:30"],
   // Top Rank (urut dari terbanyak, maksimal 10). GANTI dengan data pembeli asli.
   // nama sebaiknya disamarkan, contoh "bud***". Foto bersifat opsional: tambahkan avatar: "link-gambar"
   topRank: [
@@ -57,3 +59,18 @@ if (bg && mn) {
   document.addEventListener("keydown", e => { if (e.key === "Escape") set(false); });
   const wm = $("waMenu"); if (wm && fab) wm.href = fab.href;
 }
+
+(function () {
+  const bar = $("wibBar"); if (!bar) return;
+  const [start, end] = CONFIG.adminHours.map(t => { const [h, m] = t.split(":").map(Number); return h * 60 + m; });
+  const fmt = new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Jakarta", hourCycle: "h23", hour: "2-digit", minute: "2-digit", second: "2-digit" });
+  $("wibHours").textContent = "Jam online " + CONFIG.adminHours.map(t => t.replace(":", ".")).join("–") + " WIB";
+  function tick() {
+    const t = fmt.format(new Date());
+    const [h, m] = t.split(":").map(Number), mins = h * 60 + m, on = mins >= start && mins < end;
+    $("wibTime").textContent = t + " WIB";
+    $("wibState").textContent = on ? "ADMIN ONLINE" : "ADMIN OFFLINE";
+    bar.classList.toggle("off", !on);
+  }
+  tick(); setInterval(tick, 1000);
+})();
